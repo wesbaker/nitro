@@ -115,5 +115,9 @@ function fish_prompt
         segment yellow blue " $vaulted_prompt "
     end
 
+    if test -n (which kubectl); and kubectl config current-context &>/dev/null
+      segment yellow blue " "(kubectl config current-context)" "
+    end
+
     segment_close
 end
